@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/client/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/client/user.html">Users</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Manage
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/client/product.html">Products</a></li>
+                            <li><a class="dropdown-item" href="/client/category.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="/client/supplier.html">Suppliers</a></li>
+                            <li><a class="dropdown-item" href="/client/order.html">Orders</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/client/stocktransaction.html">Stock In/Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style=" text-align: center; align-content: center; margin-top: 15px;">
+        <h2>
+            Welcome To Inventory Management System
+        </h2>
+    </div>
+
+    <div style="margin: 10px; padding: 10px;">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card text-center align-middle border-dark w-150 h-100 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Users</h5>
+                        <h1 class="card-text" id="totalUsers">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center align-middle border-dark w-150 h-100 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Products</h5>
+                        <h1 class="card-text" id="totalProducts">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center align-middle border-dark w-150 h-100 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Categories</h5>
+                        <h1 class="card-text" id="totalCategories">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center align-middle border-dark w-150 h-100 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Suppliers</h5>
+                        <h1 class="card-text" id="totalSuppliers">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center align-middle border-dark w-150 h-100 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Orders</h5>
+                        <h1 class="card-text">0</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/client/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

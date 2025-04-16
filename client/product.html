@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - IMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/client/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Products</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Products</h3>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">Add
+                Product</button>
+        </div>
+
+        <table class="table table-bordered text-center" id="productTable">
+            <thead class="table-primary">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Supplier</th>
+                    <th>Quantity</th>
+                    <th>Price/Unit</th>
+                    <th>Reorder Level</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Create Product Modal -->
+    <div class="modal fade" id="createProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <form id="createProductForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add New Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="productName" class="form-control mb-2" placeholder="Product Name"
+                            required />
+                        <select name="categoryId" class="form-select mb-2" required></select>
+                        <select name="supplierId" class="form-select mb-2" required></select>
+                        <input type="number" name="quantityInStock" class="form-control mb-2"
+                            placeholder="Quantity In Stock" required />
+                        <input type="number" step="0.01" name="pricePerUnit" class="form-control mb-2"
+                            placeholder="Price Per Unit" required />
+                        <input type="number" name="reorderLevel" class="form-control mb-2" placeholder="Reorder Level"
+                            required />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Create Product</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <form id="editProductForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="productId" />
+                        <input type="text" name="productName" class="form-control mb-2" placeholder="Product Name"
+                            required />
+                        <select name="categoryId" class="form-select mb-2" required></select>
+                        <select name="supplierId" class="form-select mb-2" required></select>
+                        <input type="number" name="quantityInStock" class="form-control mb-2"
+                            placeholder="Quantity In Stock" required />
+                        <input type="number" step="0.01" name="pricePerUnit" class="form-control mb-2"
+                            placeholder="Price Per Unit" required />
+                        <input type="number" name="reorderLevel" class="form-control mb-2" placeholder="Reorder Level"
+                            required />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-warning">Update Product</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/client/js/product.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
