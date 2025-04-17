@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS OrderDetails (
   FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
--- Drop trigger if it already exists
 DROP TRIGGER IF EXISTS trg_UpdateStock_OnOrderComplete;
 
 DELIMITER $$
@@ -85,7 +84,6 @@ CREATE TRIGGER trg_UpdateStock_OnOrderComplete
 BEFORE UPDATE ON Orders
 FOR EACH ROW
 BEGIN
-  -- Only proceed if status is being updated to 'Completed' from 'Pending'
   IF OLD.Status = 'Pending' AND NEW.Status = 'Completed' THEN
     DECLARE done INT DEFAULT FALSE;
     DECLARE vProductID INT;
