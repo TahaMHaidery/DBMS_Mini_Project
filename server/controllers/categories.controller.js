@@ -39,7 +39,7 @@ const updateCategory = async (req, res) => {
 const deleteCategory = async (req, res) => {
   const { categoryId } = req.params;
   const sql = `DELETE FROM Categories WHERE CategoryID=?`;
-  db.query(sql, [parseInt(categoryId)], (err, result) => {
+  db.query(sql, [categoryId], (err, result) => {
     if (err) return res.status(500).json({ error: err.message });
     res.status(201).json({ message: "category deleted" });
   });

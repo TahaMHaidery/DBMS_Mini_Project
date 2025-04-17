@@ -23,7 +23,7 @@ export const createProduct = (req, res) => {
     [name, category, supplier, quantity, pricePerUnit, reorderLevel],
     (err, result) => {
       if (err) return res.status(500).json({ error: err.message });
-      res.status(201).json({ message: "User added" });
+      res.status(201).json({ message: "Product added" });
     }
   );
 };
@@ -38,7 +38,7 @@ export const updateProduct = (req, res) => {
     [name, category, supplier, quantity, pricePerUnit, reorderLevel, productId],
     (err, result) => {
       if (err) return res.status(500).json({ error: err.message });
-      res.status(201).json({ message: "User added" });
+      res.status(201).json({ message: "Product updated" });
     }
   );
 };
@@ -47,8 +47,8 @@ export const deleteProduct = (req, res) => {
   const { productId } = req.params;
 
   const sql = `DELETE FROM Products WHERE ProductID=?`;
-  db.query(sql, [productId], (err, result) => {
+  db.query(sql, [parseInt(productId)], (err, result) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.status(201).json({ message: "User added" });
+    res.status(201).json({ message: "Product deleted" });
   });
 };
