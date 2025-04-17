@@ -111,11 +111,17 @@ BEGIN
         SET QuantityInStock = QuantityInStock - vQuantity
         WHERE ProductID = vProductID;
 
+        INSERT INTO StockTransactions (ProductID, Quantity, TransactionType)
+        VALUES (vProductID, vQuantity, 'Out');
+
       -- Purchase case
       ELSEIF NEW.Type = 'Purchase' THEN
         UPDATE Products
         SET QuantityInStock = QuantityInStock + vQuantity
         WHERE ProductID = vProductID;
+
+        INSERT INTO StockTransactions (ProductID, Quantity, TransactionType)
+        VALUES (vProductID, vQuantity, 'In');
       END IF;
 
     END LOOP;

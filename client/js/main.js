@@ -3,6 +3,7 @@ const APIProducts = "http://localhost:5000/api/products/total";
 const APICategories = "http://localhost:5000/api/categories/total";
 const APISuppliers = "http://localhost:5000/api/suppliers/total";
 const APIOrders = "http://localhost:5000/api/orders/total";
+const APISTKTR = "http://localhost:5000/api/stocktransactions/total";
 
 document.addEventListener("DOMContentLoaded", () => {
   getAllCategoriesCount();
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   getAllSupplierCount();
   getAllProductsCount();
   getAllOrderCount();
+  getStockTransactionsCounts();
 });
 
 function getAllUserCount() {
@@ -49,5 +51,14 @@ function getAllOrderCount() {
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("totalOrders").textContent = data.count;
+    });
+}
+
+function getStockTransactionsCounts() {
+  fetch(APISTKTR)
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("totalStockTransactions").textContent =
+        data.count;
     });
 }

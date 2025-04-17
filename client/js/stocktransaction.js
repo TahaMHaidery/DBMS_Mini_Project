@@ -7,20 +7,29 @@ const filterTo = document.getElementById("filterTo");
 let allTransactions = [];
 let allProducts = [];
 
-async function loadTransactions() {
-  const res = await fetch("/api/stocktransactions");
-  allTransactions = await res.json();
-  displayTransactions(allTransactions);
+async function loadProducts() {
+  try {
+    const res = await fetch("http://localhost:5000/api/products");
+    const data = await res.json();
+    allProducts = data.results;
+
+    filterProduct.innerHTML += allProducts
+      .map((p) => `<option value="${p.ProductID}">${p.ProductName}</option>`)
+      .join("");
+  } catch (err) {
+    console.error("Error loading products:", err);
+  }
 }
 
-async function loadProducts() {
-  const res = await fetch("/api/products");
-  allProducts = await res.json();
-
-  // Fill product filter
-  filterProduct.innerHTML += allProducts
-    .map((p) => `<option value="${p.ProductID}">${p.ProductName}</option>`)
-    .join("");
+async function loadTransactions() {
+  try {
+    const res = await fetch("http://localhost:5000/api/stocktransactions");
+    const data = await res.json();
+    allTransactions = data.results;
+    displayTransactions(allTransactions);
+  } catch (err) {
+    console.error("Error loading transactions:", err);
+  }
 }
 
 function displayTransactions(transactions) {
@@ -80,4 +89,7 @@ function resetFilters() {
   displayTransactions(allTransactions);
 }
 
-loadProducts().then(loadTransactions);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProducts();
+  await loadTransactions();
+});
